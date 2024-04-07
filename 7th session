@@ -1,0 +1,305 @@
+#include<stdio.h>
+
+int main(void)
+{
+    char sel; // 사용자의 선택을 저장할 변수
+
+    // 사용자에게 선택지를 안내하는 메시지 출력
+    printf("M 오전 , A 오후 , E 저녁 \n");
+    printf("입력: ");
+    
+    // 사용자로부터 선택을 입력받음
+    scanf_s("%c", &sel);
+
+    // 입력된 선택에 따라 분기하는 switch 문
+    switch (sel)
+    {
+        case 'M':
+        case 'm':
+            printf("Morning \n"); // 'M' 또는 'm'일 경우
+            break;
+        case 'a':
+        case 'A':
+            printf("Afternoon \n"); // 'a' 또는 'A'일 경우
+            break;
+        case 'e':
+        case 'E':
+            printf("Evening \n"); // 'e' 또는 'E'일 경우
+            break;
+        default:
+            printf("잘못 입력하였습니다"); // 그 외의 경우
+            break;
+    }
+
+    return 0;
+}
+/*
+#include<stdio.h>
+
+int main(void)
+{
+    int num; // 입력받을 정수를 저장할 변수
+
+    // 사용자로부터 1~5 범위의 정수를 입력받음을 안내하는 메시지 출력
+    printf("1~5 정수 입력: ");
+
+    // 사용자로부터 정수를 입력받음
+    scanf_s(" %d", &num);
+
+    // 입력된 값에 따라 분기하는 switch 문
+    switch (num)
+    {
+        case 1:
+            printf("1은 one \n"); // num이 1일 경우
+            break;
+        case 2:
+            printf("2는 two \n"); // num이 2일 경우
+            break;
+        case 3:
+            printf("3는 three \n"); // num이 3일 경우
+            break;
+        case 4:
+            printf("4는 four \n"); // num이 4일 경우
+            break;
+        case 5:
+            printf("5는 five \n"); // num이 5일 경우
+            break;
+        default:
+            printf("I do not know~~ \n"); // 그 외의 경우
+            break;
+    }
+
+    return 0;
+}
+*/
+/*#include <stdio.h>
+
+int main(void)
+{
+    int num = 0; // 반복을 위한 변수 선언 및 초기화
+
+    printf("start ! :");
+
+    // 1부터 20까지 반복하는 반복문
+    for (num = 1; num < 20; num++)
+    {
+        // num이 2 또는 3으로 나누어 떨어지는 경우 다음 반복으로 넘어감
+        if ((num % 2 == 0) || (num % 3 == 0))
+        {
+            continue; // 다음 반복으로 넘어감
+        }
+
+        printf("%d ", num); // num 출력
+    }
+
+    printf("end! \n\n"); // 반복문 종료 후 출력
+
+    return 0;
+}
+*/
+/*
+#include <stdio.h>
+
+int main(void)
+{
+    int sum = 0; // 합을 저장할 변수
+    int num = 0; // 반복되는 숫자를 저장할 변수
+
+    // 무한 루프로 합이 5000을 초과할 때까지 반복
+    while (1)
+    {
+        sum += num; // 현재 num을 sum에 더함
+        if (sum > 5000) // 합이 5000을 초과하면 반복문 탈출
+        {
+            break; // 반복문 탈출
+        }
+        num++; // num을 1 증가시킴
+    }
+
+    // 결과 출력
+    printf("Sum : %d \n", sum); // 합 출력
+    printf("Num : %d \n", num); // 숫자 출력
+
+    return 0;
+}
+*/
+/*
+#include <stdio.h>
+
+int main(void)
+{
+    int num, abs; // 입력받을 정수와 절대값을 저장할 변수 선언
+
+    // 사용자로부터 정수를 입력받음
+    printf("정수 입력: ");
+    scanf_s("%d", &num);
+
+    // 조건 연산자를 사용하여 절대값을 계산
+    abs = (num > 0) ? num : num * (-1);
+
+    // 결과 출력
+    printf("절대값: %d \n\n", abs);
+
+    return 0;
+}
+*/
+/*
+#include <stdio.h>
+
+int main(void)
+{
+    int opt; // 사용자가 선택한 연산 옵션
+    double num1 = 0.0, num2 = 0.0; // 입력받을 두 개의 실수
+    double result = 0.0; // 연산 결과를 저장할 변수
+
+    // 사용자에게 연산 옵션을 안내하는 메시지 출력
+    printf("1. 덧셈 2. 뺄셈 3. 곱셈 4. 나눗셈 \n");
+    printf("정수 입력: ");
+    scanf_s("%d", &opt); // 사용자로부터 연산 옵션 입력 받음
+
+    // 두 개의 실수를 입력받음
+    printf("두 개의 실수 입력: ");
+    scanf_s("%lf %lf", &num1, &num2);
+
+    // 사용자가 선택한 연산에 따라 연산을 수행하고 결과 출력
+    if (opt == 1)
+    {
+        result = num1 + num2; // 덧셈
+    }
+    else if (opt == 2)
+    {
+        result = num1 - num2; // 뺄셈
+    }
+    else if (opt == 3)
+    {
+        result = num1 * num2; // 곱셈
+    }
+    else if (opt == 4)
+    {
+        // 0으로 나누는 경우를 방지하기 위해 나눗셈 전에 0으로 나누는지 확인
+        if (num2 != 0)
+        {
+            result = num1 / num2; // 나눗셈
+        }
+        else
+        {
+            printf("0으로 나눌 수 없습니다. \n"); // 오류 메시지 출력
+            return -1; // 프로그램 종료
+        }
+    }
+    else
+    {
+        printf("잘못 입력 하였습니다. \n"); // 잘못된 옵션 입력 시 오류 메시지 출력
+        return -1; // 프로그램 종료
+    }
+
+    // 결과 출력
+    printf("결과: %lf \n", result);
+
+    return 0;
+}
+*/
+/*
+	int num;
+	printf("정수 입력 : ");
+	scanf_s("%d", &num);
+
+	if (num < 0)
+	{
+		printf("입력된 정수는 0보다 작다 \\n");
+	}
+	else
+	{
+		printf("입력된 정수는 0보다 작지 않다 \\n");
+	}
+*/
+/*
+#include <stdio.h>
+
+int main(void)
+{
+    int opt; // 사용자가 선택한 연산 옵션
+    double num1 = 0.0, num2 = 0.0; // 입력받을 두 개의 실수
+    double result = 0.0; // 연산 결과를 저장할 변수
+
+    // 사용자에게 연산 옵션을 안내하는 메시지 출력
+    printf("1. 덧셈 2. 뺄셈 3. 곱셈 4. 나눗셈 \n");
+    printf("정수 입력: ");
+    scanf_s("%d", &opt); // 사용자로부터 연산 옵션 입력 받음
+
+    // 입력된 연산 옵션이 올바른지 확인하고 아니면 오류 메시지 출력 후 프로그램 종료
+    if (opt < 1 || opt > 4)
+    {
+        printf("잘못 입력 하였습니다. \n");
+        return 1; // 프로그램 비정상 종료
+    }
+
+    // 두 개의 실수를 입력받음
+    printf("두 개의 실수 입력: ");
+    scanf_s("%lf %lf", &num1, &num2);
+
+    // 입력된 연산 옵션에 따라 연산을 수행하고 결과를 출력
+    if (opt == 1)
+    {
+        result = num1 + num2; // 덧셈
+    }
+    if (opt == 2)
+    {
+        result = num1 - num2; // 뺄셈
+    }
+    if (opt == 3)
+    {
+        result = num1 * num2; // 곱셈
+    }
+    if (opt == 4)
+    {
+        // 0으로 나누는 경우를 방지하기 위해 나눗셈 전에 0으로 나누는지 확인
+        if (num2 != 0)
+        {
+            result = num1 / num2; // 나눗셈
+        }
+        else
+        {
+            printf("0으로 나눌 수 없습니다. \n"); // 오류 메시지 출력
+            return 1; // 프로그램 비정상 종료
+        }
+    }
+
+    // 결과 출력
+    printf("결과: %lf \n", result);
+
+    return 0; // 프로그램 정상 종료
+}
+*/
+/*
+#include <stdio.h>
+
+int main(void)
+{
+    int num = 0; // 입력받을 정수 변수
+
+    // 사용자로부터 정수 입력 받음
+    printf("정수 입력: ");
+    scanf_s("%d", &num);
+
+    // 입력된 정수가 음수인지 확인하고 메시지 출력
+    if (num < 0)
+    {
+        printf("입력된 수는 음수입니다. \n");
+    }
+    
+    // 입력된 정수가 양수인지 확인하고 메시지 출력
+    if (num > 0)
+    {
+        printf("입력된 수는 양수입니다. \n");
+    }
+    
+    // 입력된 정수가 0인지 확인하고 메시지 출력
+    if (num == 0)
+    {
+        printf("입력된 수는 0입니다. \n");
+    }
+
+    return 0;
+}
+*/
