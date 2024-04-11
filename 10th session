@@ -1,0 +1,105 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include<stdio.h>
+
+void example1(void);
+void example2(void);
+
+int main(void)
+{
+    FILE* fp;
+    int i;
+    int data1 = 0;
+    double data2 = 0.0;
+    char ch;
+    fp = fopen("data3.txt", "rt");
+
+    if (fp == NULL)
+    {
+        // 파일이 없을 때의 처리
+        // printf("File writing Error!\n");
+        puts("File Reading Error!\n");
+        return -1;
+    }
+    else
+    {
+        printf("File Reading Success!\n");
+    }
+    
+    // 파일에서 정수 데이터 읽기
+    for (i = 0; i < 2; i++)
+    {
+        // ch = fgetc(fp); // 문자 하나씩 읽을 때 사용할 수 있으나 여기서는 사용하지 않음
+        fscanf(fp, "%d", &data1); // 파일에서 정수를 읽어서 data1에 저장
+        printf("%d \n", data1); // 읽은 정수를 출력
+    }
+    
+    // 파일에서 실수 데이터 읽기
+    for (i = 0; i < 2; i++)
+    {
+        // ch = fgetc(fp); // 문자 하나씩 읽을 때 사용할 수 있으나 여기서는 사용하지 않음
+        fscanf(fp, "%lf", &data2); // 파일에서 실수를 읽어서 data2에 저장
+        printf("%lf \n", data2); // 읽은 실수를 출력
+    }
+    
+    fclose(fp); // 파일 닫기
+    return 1;
+}
+
+
+void example1(void)
+{
+    FILE* fp;
+
+    fp = fopen("data2.txt", "wt"); // 쓰기 모드로 파일 열기
+
+    if (fp == NULL)
+    {
+        // 파일 열기 실패 시의 처리
+        // printf("File writing Error!\n");
+        puts("File writing Error!\n");
+        return;
+    }
+    else
+    {
+        printf("File Writing Success!\n");
+    }
+
+    fputc('A', fp);  // 파일에 문자 'A' 쓰기
+    fputc('B', fp);  // 파일에 문자 'B' 쓰기
+    fputc('C', fp);  // 파일에 문자 'C' 쓰기
+    fputs("\nDEF\n", fp); // 파일에 문자열 "\nDEF\n" 쓰기
+
+    printf("%d\n", fclose(fp)); // 파일 닫기 후 반환값 출력
+    return;
+}
+
+void example2(void)
+{
+    FILE* fp;
+    int i;
+    char ch;
+    fp = fopen("data2.txt", "rt"); // 읽기 모드로 파일 열기
+
+    if (fp == NULL)
+    {
+        // 파일 열기 실패 시의 처리
+        // printf("File writing Error!\n");
+        puts("File Reading Error!\n");
+        return;
+    }
+    else
+    {
+        printf("File Reading Success!\n");
+    }
+    
+    // 파일에서 문자 데이터 읽기
+    for (i = 0; i < 7; i++)
+    {
+        // ch = fgetc(fp); // 문자 하나씩 읽을 때 사용할 수 있으나 여기서는 사용하지 않음
+        fscanf(fp, "%c", &ch); // 파일에서 문자를 읽어서 ch에 저장
+        printf("%c \n", ch); // 읽은 문자 출력
+    }
+    
+    fclose(fp); // 파일 닫기
+    return;
+}
